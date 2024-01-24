@@ -469,7 +469,7 @@ class MultiHeadAttentionAwareTemporalContex_q1d_k1d(nn.Module):  # 1d conv on qu
                 query_w, key_w = [l(x.permute(0, 3, 1, 2)).contiguous().view(nbatches, self.h, self.d_k, N, -1).permute(0, 3, 1, 4, 2) for l, x in zip(self.conv1Ds_aware_temporal_context, (query[:, :, :self.w_length, :], key[:, :, :self.w_length, :]))]
                 query_list.append(query_w)
                 key_list.append(key_w)
-                #l,x参与循环，x第一次循环表示query 第二次表示key ,l表示两次循环的二维卷积
+                
             if self.d_length > 0:
                 query_d, key_d = [l(x.permute(0, 3, 1, 2)).contiguous().view(nbatches, self.h, self.d_k, N, -1).permute(0, 3, 1, 4, 2) for l, x in zip(self.conv1Ds_aware_temporal_context, (query[:, :, self.w_length:self.w_length+self.d_length, :], key[:, :, self.w_length:self.w_length+self.d_length, :]))]
                 query_list.append(query_d)
