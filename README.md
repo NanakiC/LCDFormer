@@ -12,7 +12,7 @@ torch-gpu.
 
 ## Data Preparation
 
-Step1: Download datasets([PEMS03](https://github.com/guoshnBJTU/ASTGNN/tree/main/data/PEMS03),[PEMS04](https://github.com/guoshnBJTU/ASTGNN/tree/main/data/PEMS04),[PEMS07](https://github.com/guoshnBJTU/ASTGNN/tree/main/data/PEMS07),[PEMS07(M)](https://github.com/wengwenchao123/DDGCRN?tab=readme-ov-file),HZME_OUTFLOW).
+Step1: Download datasets([PEMS03](https://github.com/guoshnBJTU/ASTGNN/tree/main/data/PEMS03),[PEMS04](https://github.com/guoshnBJTU/ASTGNN/tree/main/data/PEMS04),[PEMS07](https://github.com/guoshnBJTU/ASTGNN/tree/main/data/PEMS07),[PEMS07(M)](https://github.com/wengwenchao123/DDGCRN?tab=readme-ov-file),[HZME_OUTFLOW](https://github.com/DrownFish19/CorrSTN/tree/master/data/HZME_OUTFLOW)).
 
 Step2: Process raw data
 
