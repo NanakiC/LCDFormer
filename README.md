@@ -1,18 +1,8 @@
 # LCDFormer
 
-Brief description of your project.
 
-## Table of Contents
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+
 
 ## Requirements
 
@@ -42,8 +32,15 @@ python create_dtw.py
 python run.py
 ```
 
-### config
+### Config
 
 You can modify the parameters in the [configurations](/configurations/).
+
+### Attention
+
+When using PEMS07, please ensure that you have approximately 40GB of GPU memory.
+
+If unable to run PrepareData.py, you can modify your virtual memory based on the error message.
+
 
 
