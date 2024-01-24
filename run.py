@@ -144,7 +144,7 @@ def compute_val_loss(net,val_loader,criterion,epoch):
 
         val_loader_length = len(val_loader)  # nb of batch
 
-        tmp = []  # 记录了所有batch的loss
+        tmp = []  
 
         start_time = time()
 
@@ -171,7 +171,7 @@ def compute_val_loss(net,val_loader,criterion,epoch):
                 predict_output = net.decode(decoder_inputs, encoder_output)
                 decoder_input_list = [decoder_start_inputs, predict_output]
 
-            loss = criterion(predict_output, labels)  # 计算误差
+            loss = criterion(predict_output, labels)  
             tmp.append(loss.item())
             if batch_index % 100 == 0:
                 print('validation batch %s / %s, loss: %.2f' % (batch_index + 1, val_loader_length, loss.item()))
@@ -215,7 +215,7 @@ def load_graphdata_normY_channel1(graph_signal_matrix_filename, num_of_hours, nu
     test_x = file_data['test_x']
     test_x = test_x[:, :, 0:1, :]
     test_target = file_data['test_target']
-    test_timestamp = file_data['test_timestamp']#大小归一化
+    test_timestamp = file_data['test_timestamp']
 
     _max = file_data['mean']  # (1, 1, 3, 1)
     _min = file_data['std']  # (1, 1, 3, 1)
@@ -226,7 +226,7 @@ def load_graphdata_normY_channel1(graph_signal_matrix_filename, num_of_hours, nu
     val_target_norm = max_min_normalization(val_target, _max[:, :, 0, :], _min[:, :, 0, :])
 # (10181, 307, 12)
     #  ------- train_loader -------
-    train_decoder_input_start = train_x[:, :, 0:1, -1:]  # (B, N, 1(F), 1(T)),最后已知traffic flow作为decoder 的初始输入
+    train_decoder_input_start = train_x[:, :, 0:1, -1:]  # (B, N, 1(F), 1(T))
     train_decoder_input_start = np.squeeze(train_decoder_input_start, 2)  # (B,N,T(1))
     train_decoder_input = np.concatenate((train_decoder_input_start, train_target_norm[:, :, :-1]), axis=2)  # (B, N, T)
     #decoder输入：训练集x最后一个+训练集y前11个
@@ -239,7 +239,7 @@ def load_graphdata_normY_channel1(graph_signal_matrix_filename, num_of_hours, nu
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=shuffle)
 
     #  ------- val_loader -------
-    val_decoder_input_start = val_x[:, :, 0:1, -1:]  # (B, N, 1(F), 1(T)),最后已知traffic flow作为decoder 的初始输入
+    val_decoder_input_start = val_x[:, :, 0:1, -1:]  # (B, N, 1(F), 1(T))
     val_decoder_input_start = np.squeeze(val_decoder_input_start, 2)  # (B,N,T(1))
     val_decoder_input = np.concatenate((val_decoder_input_start, val_target_norm[:, :, :-1]), axis=2)  # (B, N, T)
 
@@ -252,7 +252,7 @@ def load_graphdata_normY_channel1(graph_signal_matrix_filename, num_of_hours, nu
     val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=batch_size)
 
     #  ------- test_loader -------
-    test_decoder_input_start = test_x[:, :, 0:1, -1:]  # (B, N, 1(F), 1(T)),最后已知traffic flow作为decoder 的初始输入
+    test_decoder_input_start = test_x[:, :, 0:1, -1:]  # (B, N, 1(F), 1(T))
     test_decoder_input_start = np.squeeze(test_decoder_input_start, 2)  # (B,N,T(1))
     test_decoder_input = np.concatenate((test_decoder_input_start, test_target_norm[:, :, :-1]), axis=2)  # (B, N, T)
 
