@@ -44,3 +44,22 @@ If unable to run PrepareData.py, you can modify your virtual memory based on the
 
 
 
+### Cite
+
+If you find the paper useful, please cite as following:
+```bash
+@article{LCDFormer,
+title = {LCDFormer: Long-term correlations dual-graph transformer for traffic forecasting},
+journal = {Expert Systems with Applications},
+volume = {249},
+pages = {123721},
+year = {2024},
+issn = {0957-4174},
+doi = {https://doi.org/10.1016/j.eswa.2024.123721},
+url = {https://www.sciencedirect.com/science/article/pii/S0957417424005876},
+author = {Jiongbiao Cai and Chia-Hung Wang and Kun Hu},
+}
+```
+
+
+
